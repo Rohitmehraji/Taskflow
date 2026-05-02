@@ -14,9 +14,10 @@ app.use('/api/projects', require('./routes/projects'));
 app.use('/api/tasks', require('./routes/tasks'));
 
 // Serve static frontend in production
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
+// Replace the frontend/dist lines with:
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/{*path}', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
